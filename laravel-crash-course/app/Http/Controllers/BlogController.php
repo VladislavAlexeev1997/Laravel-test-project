@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 
 class BlogController extends Controller
 {
@@ -29,11 +30,23 @@ class BlogController extends Controller
 
     public function getPost($slug_category, $slug_post) {
         $post = Post::where('slug', $slug_post)->first();
+        $comments = Comment::where('post_id', $post->id)->get();
         $categories = Category::orderBy('title')->get();
+        $current_category = Category::where('slug',$slug_category)->first();
         return view('pages.show-post', [
             'post' => $post,
+            'comments' => $comments,
             'categories' => $categories,
             'slug_category' => $slug_category,
+            'current_category' => $current_category,
         ]);
+    }
+
+    public function postNewComment(Request $request) {
+        $this->validate($request, [
+            'user_name' => 'required',
+            'comment' => 'required',
+        ]);
+
     }
 }

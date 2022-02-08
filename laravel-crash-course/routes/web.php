@@ -15,8 +15,10 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/', [BlogController::class, 'index']);
+Route::get('/', [BlogController::class, 'index'])->name('index');
 
 Route::get('/category/{slug}', [BlogController::class, 'getPostByCategory'])->name('getPostByCategory');
 
 Route::get('/category/{slug_category}/{slug_post}', [BlogController::class, 'getPost'])->name('getPost');
+
+Route::post('/category/{slug_category}/{slug_post}', [BlogController::class, 'postNewComment'])->name('postNewComment');
