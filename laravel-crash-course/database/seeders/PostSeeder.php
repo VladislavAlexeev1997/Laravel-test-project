@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/**
+* Класс для заполнения тесовыми данными таблицы постов блога prefix_db_posts в БД.
+*/
 class PostSeeder extends Seeder
 {
     /**

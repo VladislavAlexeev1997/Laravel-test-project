@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/**
+* Класс для заполнения тесовыми данными таблицы комментариев постов prefix_db_comments в БД.
+*/
 class CommentSeeder extends Seeder
 {
     /**

@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+* Класс миграции для инициализации таблицы постов prefix_db_posts в БД.
+*/
 class CreatePostsTable extends Migration
 {
     /**

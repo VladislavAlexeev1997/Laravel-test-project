@@ -1,10 +1,7 @@
-@extends('layouts.frame-layout')
-
-@section('frame-header')
-   <p class="card-text">Пользователь <b>{{$user_name}}</b></p>
-@endsection
-
-@section('frame-body')
-   <p class="card-text"><i>{{$date_time}}</i></p>
-   <p class="card-text">{{$comment}}</p>
-@endsection
+<!-- Шаблон отображения категорий на страницах веб-прилоения -->
+<div class="btn-group mb-4" role="group" aria-label="Basic outlined example">
+    <a href="{{route('index')}}" class="btn btn-outline-primary">Все категории</a>
+    @foreach($categories as $category)
+    <a href="{{route('getPostByCategory', $category['slug'])}}" class="btn btn-outline-primary">{{$category->title}}</a>
+    @endforeach
+</div>

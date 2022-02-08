@@ -1,3 +1,4 @@
+<!-- Главная страница блога -->
 @extends('layouts.main-layout')
 
 @section('title', 'Блог')

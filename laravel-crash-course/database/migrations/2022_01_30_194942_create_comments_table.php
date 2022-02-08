@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+* Класс миграции для инициализации таблицы комменариев постов prefix_db_comments в БД.
+*/
 class CreateCommentsTable extends Migration
 {
     /**
