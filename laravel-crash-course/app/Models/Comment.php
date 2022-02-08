@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Scopes\ReverseScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,12 +34,14 @@ class Comment extends Model
     }
 
     /**
-    * Функция представления данных из таблицы комментариев prefix_db_comment
-    * во всех запросах с условием упорядочивания данных по дате создания
-    * коментария в обратном порядке.
-    */
-    protected static function booted()
+     * Ограничение запроса к таблице комментариев prefix_db_comment
+     * для вывода их обратном порядке по дате и времени их опубликования.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeDescComments($query)
     {
-        static::addGlobalScope(new ReverseScope);
+        return $query->orderBy('created_at', 'desc');
     }
 }

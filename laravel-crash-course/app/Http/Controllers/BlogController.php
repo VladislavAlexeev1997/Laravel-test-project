@@ -44,7 +44,7 @@ class BlogController extends Controller
     */
     public function getPost($slug_category, $slug_post) {
         $post = Post::where('slug', $slug_post)->first();
-        $comments = Comment::where('post_id', $post->id)->get();
+        $comments = Comment::descComments()->where('post_id', $post->id)->get();
         $categories = Category::orderBy('title')->get();
         $current_category = Category::where('slug',$slug_category)->first();
 
